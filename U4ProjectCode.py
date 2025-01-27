@@ -166,14 +166,21 @@ while answer != f1 and answer != f2 and answer != f3 and answer != "none":
   answer = input("\nIncorrect filter, please enter:\n " +  f1 + "\n " + f2 + "\n " + f3 + "\n none\n\n")
 
 # This loop constantly runs until user inputs "none" to end the filter processes
+# If user inputs "negative", the image will be given a negative filter
 while answer == f1 or answer == f2 or answer == f3:
   if answer == f1:
    img = negative()
+# If the user inputs "saturation", the program will prompt the user for a value between 0-2
+# If the user answers the prompt with anything other than a value between 0-2, the user is denied and prompted again
+# After the user answers a valid prompt, the image is given the corresponding saturation levels
   elif answer == f2:
    satlvl = int(input("How much would you like to saturate your photo? Please enter a value between 0 and 2: "))
    while satlvl < 0 or satlvl > 2:
      satlvl = int(input("Invalid answer. Please enter a value between 0 and 2: "))
    img = saturation(satlvl)
+# If the user inputs "brightness", the program will prompt the user for a value between -100 and 100
+# If the user answers the prompt with anything other than a value between -100 and 100, the user is denied and prompted again
+# After the user answers a valid prompt, the image is given the corresponding brightness levels
   elif answer == f3:
    brightlvl = int(input("How much brightness would you like? Please enter a value from -100 to 100: "))
    while brightlvl < -100 or brightlvl > 100:
@@ -182,6 +189,7 @@ while answer == f1 or answer == f2 or answer == f3:
   else:
     break
   print("Filter \"" + answer + "\" applied...")
+# Applies filters until user inputs "none"
   answer = input("\nWhich filter do you want me to apply next?\n " +  f1 + "\n " + f2 + "\n " + f3 + "\n none\n\n")
   while answer != f1 and answer != f2 and answer != f3 and answer != "none":
     answer = input("\nIncorrect filter, please enter:\n " +  f1 + "\n " + f2 + "\n " + f3 + "\n none\n\n")
